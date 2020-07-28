@@ -1,0 +1,61 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        
+        ListNode temp = new ListNode();
+        ListNode answer;
+        int p = 0;
+        
+        answer = temp;
+        while(l1!=null || l2!=null || p==1)
+        {
+            if(l1==null)  //l1이 null일 경우를 위한 예외처리
+            {
+                l1 = new ListNode();
+                l1.val = 0;
+            }
+            if(l2==null) //l2가 null일 경우를 위한 예외처리
+            {
+                l2 = new ListNode();
+                l2.val = 0;
+            }
+            if(p+l1.val+l2.val > 9) //각 자리 수의 합이 10 이상인 경우
+            {
+                temp.val = (p+l1.val+l2.val)%10;
+                p=1;
+            }
+            else  //각 자리 수의 합이 10 미만인 경우
+            {
+                temp.val = p+l1.val+l2.val;
+                if(p==1)
+                {
+                    p=0;
+                }
+            }
+            
+            l1 = l1.next;
+            l2 = l2.next;
+            
+            if(l1!=null || l2!=null || p==1)
+            {
+                temp.next = new ListNode();
+                temp = temp.next;
+            }
+           
+        }
+       
+        
+        return answer;
+
+    }
+}
+
