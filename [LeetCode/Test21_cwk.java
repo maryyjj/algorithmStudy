@@ -23,7 +23,7 @@ public class Test21_cwk {
 
 class Solution21 {
 	public ListNode21 mergeTwoLists(ListNode21 l1, ListNode21 l2) {
-		// 최종 return 할 ListNode
+		// 최종 return 할 ListNode 
 		ListNode21 mergeNode = new ListNode21();
 		ListNode21 tempNode = mergeNode;
 		
